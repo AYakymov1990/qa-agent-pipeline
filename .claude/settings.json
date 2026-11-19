@@ -1,0 +1,41 @@
+{
+  "enableAllProjectMcpServers": true,
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Edit(tasks/**)",
+      "Write(tasks/**)",
+      "mcp__playwright",
+      "mcp__azure-devops__core_list_projects",
+      "mcp__azure-devops__wit_get_work_item",
+      "mcp__azure-devops__wit_get_work_items_batch_by_ids",
+      "mcp__azure-devops__wit_list_work_item_comments",
+      "mcp__azure-devops__wit_list_work_item_revisions",
+      "Bash(.venv/bin/python .claude/skills/:*)",
+      "Bash(python3 .claude/skills/:*)",
+      "Bash(.venv/bin/python scripts/:*)",
+      "Bash(python3 scripts/:*)",
+      "Skill",
+      "Edit(context-outbox/**)",
+      "Write(context-outbox/**)",
+      "Bash(mkdir -p tasks/:*)",
+      "Bash(cp tasks/:*)",
+      "Bash(ls:*)",
+      "Bash(date:*)"
+    ],
+    "deny": [
+      "mcp__azure-devops__wit_create_work_item",
+      "mcp__azure-devops__wit_update_work_item",
+      "mcp__azure-devops__wit_update_work_items_batch",
+      "mcp__azure-devops__wit_add_work_item_comment",
+      "mcp__azure-devops__wit_add_child_work_items",
+      "mcp__azure-devops__wit_work_items_link",
+      "mcp__azure-devops__wit_work_item_unlink",
+      "mcp__azure-devops__wit_add_artifact_link",
+      "mcp__azure-devops__wit_link_work_item_to_pull_request",
+      "Bash(git push:*)"
+    ]
+  }
+}

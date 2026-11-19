@@ -1,0 +1,174 @@
+{
+  "azure_devops": {
+    "organization": "abp",
+    "project": "Avto.Pro",
+    "work_item_url": "https://dev.azure.com/abp/Avto.Pro/_workitems/edit/{id}"
+  },
+  "stands": {
+    "host_pattern": "^(avto|es|pt|pl|tr|ua)\\.seller[1-5]\\.vus\\.us$",
+    "url_template": "https://{site}.seller{n}.vus.us",
+    "sites": [
+      "avto",
+      "es",
+      "pt",
+      "pl",
+      "tr",
+      "ua"
+    ]
+  },
+  "checklist": {
+    "sheet": "Check-list",
+    "analysis_sheet": "Анализ PBI",
+    "columns": {
+      "id": [
+        "ID"
+      ],
+      "check": [
+        "Проверка",
+        "Перевірка"
+      ],
+      "expected": [
+        "Ожидаемый результат",
+        "Очікуваний результат"
+      ],
+      "note": [
+        "Примечание",
+        "Примітка"
+      ],
+      "run_prefix": [
+        "Прогон",
+        "Прогін"
+      ]
+    },
+    "statuses": {
+      "PASS": "Успешно",
+      "FAIL": "Баг",
+      "BLOCKED": "Пропущено",
+      "FLAKY": "Пропущено",
+      "SKIPPED": "Пропущено"
+    },
+    "note_tokens": {
+      "priority": "^P[123]$",
+      "test_env_only": [
+        "Только тест-среда",
+        "Тільки тест-середовище"
+      ],
+      "data": [
+        "Данные:",
+        "Дані:"
+      ],
+      "source": [
+        "Источник:",
+        "Джерело:"
+      ],
+      "precondition": [
+        "Предусловие:",
+        "Передумова:"
+      ],
+      "assumption": [
+        "Пока считаем:",
+        "Поки вважаємо:",
+        "По допущению",
+        "За припущенням"
+      ]
+    },
+    "regression_marker": [
+      "[Регресс]",
+      "[Регрес]"
+    ]
+  },
+  "codewiki_qa_section": "kb/QA",
+  "dev_check": {
+    "time_budget_minutes": 45,
+    "stop_on_p1_fail": true,
+    "default_max_cases": 15
+  },
+  "runs": {
+    "commit": true,
+    "branch": "main"
+  },
+  "classification": {
+    "_comment": "Чернетка класифікації за маркерами в тексті перевірки, очікуваного і даних. Остаточно — скіл checklist-import (і QA). Маркери — нижній регістр, підрядки.",
+    "manual": {
+      "визуальн": "візуальна оцінка",
+      "планшет": "вигляд на планшеті",
+      "телефон": "вигляд на телефоні",
+      "иллюстрац": "ілюстрація",
+      "svg": "ілюстрація",
+      "автозаполн": "автозаповнення браузера",
+      "задерж": "керована затримка відповіді",
+      "управляем": "керований стан зовнішнього сервісу",
+      "сборк": "порівняння зі збіркою до зміни",
+      "до изменения": "порівняння зі збіркою до зміни",
+      "буфер": "буфер обміну"
+    },
+    "needs_qa": {
+      "qa заранее": "передумова, яку готує QA",
+      "подготовлен qa": "дані готує QA"
+    }
+  },
+  "selection": {
+    "dev": {
+      "priorities": [
+        "P1",
+        "P2"
+      ],
+      "exclude_regression": true,
+      "exclude_assumption": true,
+      "exclude_needs_qa": true,
+      "require_data": true
+    },
+    "qa": {
+      "priorities": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "exclude_regression_covered_by_autotests": true,
+      "include_assumption": true
+    }
+  },
+  "routes": {
+    "_comment": "Маршрут за ризиком (ознаки L — гроші, статуси, інтеграції). Визначає глибину QA-режиму і ліміт dev-перевірки.",
+    "L_markers": [
+      "оплат",
+      "платеж",
+      "pago",
+      "stripe",
+      "recalvi",
+      "возврат",
+      "повернен",
+      "холд",
+      "кешбек",
+      "paycredit",
+      "цен",
+      "стоимост",
+      "тариф",
+      "скидк",
+      "статус",
+      "интеграц",
+      "genei",
+      "correos",
+      "перевозчик",
+      "доставк"
+    ],
+    "S": {
+      "dev_max_cases": 8,
+      "spec": "без окремої специфікації — кейси прямо з чек-листа",
+      "recon": "за бажанням",
+      "run_mode": "автоматичний"
+    },
+    "M": {
+      "dev_max_cases": 15,
+      "spec": "коротка",
+      "recon": "рекомендовано",
+      "run_mode": "покроковий"
+    },
+    "L": {
+      "dev_max_cases": 20,
+      "spec": "повна, погоджена QA",
+      "recon": "обовʼязково",
+      "run_mode": "покроковий"
+    }
+  }
+}

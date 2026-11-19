@@ -1,0 +1,21 @@
+# секрети і локальне оточення
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.auth/
+*.storage-state.json
+
+# вхідні дані задачі — кеш з Azure DevOps, отримується заново
+tasks/*/input/
+
+# важкі артефакти прогонів (скріншоти png лишаються — це докази)
+tasks/**/*.webm
+tasks/**/*.mp4
+tasks/**/*.zip
+tasks/**/*.har
+tasks/**/trace*
+
+.DS_Store
+node_modules/
